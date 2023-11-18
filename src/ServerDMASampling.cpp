@@ -1,12 +1,18 @@
 #include <iostream>
-#include "lz4.h"
+
+#include "ProcStat.hpp"
 
 using namespace std;
 
 int main()
 {
-	string *l = new string("Hello, World!");
-	cout << *l << endl;
+#ifdef __linux__
+	// Code to execute if the OS is Linux
+	cout << "linux" << endl;
 
+	ProcStat ps;
+	string ret = ps.get();
+	cout << ret << endl;
+#endif
 	return 0;
 }
