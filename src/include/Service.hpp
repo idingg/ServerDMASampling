@@ -47,23 +47,28 @@ class Service {
     return result;
   }
   static const Time Now() {
+    std::chrono::_V2::system_clock::time_point now =
+        std::chrono::high_resolution_clock::now();
     Time time;
-    time.sec = std::chrono::duration_cast<std::chrono::seconds>(
-                   std::chrono::system_clock::now().time_since_epoch())
-                   .count();
+
+    time.sec =
+        std::chrono::duration_cast<std::chrono::seconds>(now.time_since_epoch())
+            .count();
     time.nsec = std::chrono::duration_cast<std::chrono::nanoseconds>(
-                    std::chrono::system_clock::now().time_since_epoch())
-                    .count();
+                    now.time_since_epoch())
+                    .count() %
+                static_cast<int64_t>(1e9);
     return time;
   }
 
   static void GetElapsedTimeFrom(const Time time,
                                  const uint64_t sleep_time_ms) {
     Time now = Now();
-    std::string formated = DoubleToFixedString(
-        (now.sec - time.sec) + (now.nsec - time.nsec) * 1e-9 -
-            sleep_time_ms * 1e-3,
-        9);
+    double sec = now.sec - time.sec;
+    double nsec = ((double)now.nsec - time.nsec) * 1e-9;
+    double sleep_time = sleep_time_ms * 1e-3;
+
+    std::string formated = DoubleToFixedString(sec + nsec - sleep_time, 9);
     std::cout << "Elapsed time: " << formated << " sec" << std::endl;
   }
 };

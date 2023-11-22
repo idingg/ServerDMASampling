@@ -2,6 +2,7 @@
 #ifndef _TYPE
 #define _TYPE
 
+#include <stdint.h>
 #include <unistd.h>
 
 #include <string>
@@ -24,10 +25,10 @@ std::string LineSeparator() {
 
 class ProcStatData {
  private:
-  std::string data = "";
+  std::string data;
 
  public:
-  ProcStatData(){};
+  ProcStatData() { data = ""; };
 
   ProcStatData(std::string data) { this->data = data; };
 
@@ -46,7 +47,7 @@ class Pid {
   std::uint32_t pid;
 
  public:
-  Pid() { this->pid = 0; };
+  Pid() { pid = 0; };
 
   Pid(std::uint32_t pid) { this->pid = pid; };
 
