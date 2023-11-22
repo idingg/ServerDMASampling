@@ -14,12 +14,12 @@ if(NOT Boost_FOUND)
 endif()
 
 add_executable(ServerDMASampling src/ServerDMASampling.cpp)
-include_directories(src/include)
+include_directories(src/include src/include/proc)
 
 target_link_libraries(ServerDMASampling
-		Boost::system
-		Boost::filesystem
-		)
+    Boost::system
+    Boost::filesystem
+    )
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
