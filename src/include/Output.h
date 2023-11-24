@@ -7,8 +7,8 @@
 #include <map>
 #include <sstream>
 
-#include "Service.hpp"
-#include "Type.hpp"
+#include "Service.h"
+#include "Type.h"
 
 class Output {
  private:

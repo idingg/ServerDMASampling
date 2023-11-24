@@ -10,7 +10,7 @@
 #include <string>
 #include <vector>
 
-#include "proc/Type.hpp"
+#include "proc/Type.h"
 
 class Service {
  private:

@@ -1,9 +1,9 @@
 #include <iostream>
 
-#include "Output.hpp"
-#include "Service.hpp"
-#include "proc/ProcStat.hpp"
-#include "proc/Type.hpp"
+#include "Output.h"
+#include "Service.h"
+#include "proc/ProcStat.h"
+#include "proc/Type.h"
 
 using namespace std;
 
