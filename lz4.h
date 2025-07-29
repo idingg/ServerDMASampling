@@ -656,7 +656,7 @@ LZ4_attach_dictionary(LZ4_stream_t* workingStream,
 #define LZ4_HASH_SIZE_U32 (1 << LZ4_HASHLOG)       /* required as macro for static allocation */
 
 #if defined(__cplusplus) || (defined (__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L) /* C99 */)
-#include <stdint.h>
+# include <stdint.h>
   typedef  int8_t  LZ4_i8;
   typedef uint8_t  LZ4_byte;
   typedef uint16_t LZ4_u16;
